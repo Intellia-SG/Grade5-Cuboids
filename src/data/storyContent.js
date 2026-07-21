@@ -1,0 +1,51 @@
+export const storyPanels = [
+  {
+    id: 0,
+    title: "1. The Space Cargo Team",
+    text: "Sarah, John, and Mike run a small space cargo delivery company. Their spaceship has a cuboid-shaped cargo hold ready to pack!",
+    image: "/assets/story/panel_1.png",
+    length: 4, width: 3, height: 2,
+    highlight: "cuboid-shaped cargo hold",
+  },
+  {
+    id: 1,
+    title: "2. Cargo Dimensions",
+    text: "The cargo hold is 4 metres long, 3 metres wide, and 2 metres tall. To know how much cargo it can carry, we need to find its VOLUME.",
+    image: "/assets/story/panel_2.png",
+    length: 4, width: 3, height: 2,
+    highlight: "VOLUME = space inside",
+  },
+  {
+    id: 2,
+    title: "3. Counting Layer by Layer",
+    text: "One bottom layer has 4 × 3 = 12 unit cubes. Since it is 2 metres tall, there are 2 layers. 12 × 2 = 24 cubes in total!",
+    image: "/assets/story/panel_3.png",
+    length: 4, width: 3, height: 2, showCubeGrid: true,
+    highlight: "4 × 3 × 2 = 24 cubes",
+  },
+  {
+    id: 3,
+    title: "4. The Volume Formula",
+    text: "So Volume = length × width × height = 4 × 3 × 2 = 24 m³! Now we can calculate the volume of any cuboid instantly.",
+    image: "/assets/story/panel_4.png",
+    length: 4, width: 3, height: 2,
+    highlight: "Volume = length × width × height",
+  },
+  {
+    id: 4,
+    title: "5. Cubes Are Special Cuboids",
+    text: "Sarah checks a cube-shaped fuel tank where side = 3 m. A cube is a special cuboid where all sides are equal! Volume = 3 × 3 × 3 = 27 m³.",
+    image: "/assets/story/panel_5.png",
+    length: 3, width: 3, height: 3, isCube: true,
+    highlight: "Cube Volume = side × side × side",
+  },
+  {
+    id: 5,
+    title: "6. Volume & Capacity",
+    text: "John fills the aquarium escape pod: 1,000 cubic centimetres equals 1 litre of water! Volume measures 3D space, which gives us liquid capacity.",
+    image: "/assets/story/panel_6.png",
+    length: 10, width: 10, height: 10,
+    highlight: "1,000 cm³ = 1 Litre",
+  },
+];
+
