@@ -25,10 +25,22 @@ export default function FormulaMasterStation({ onCompleteStation, isCompleted })
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', color: 'var(--gold)', marginBottom: '4px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '8px' }}>
         Station C: Formula Master
       </h3>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '14px', fontSize: '0.9rem' }}>
+      <p style={{
+        color: '#ffffff',
+        marginBottom: '16px',
+        fontSize: '1.1rem',
+        fontWeight: 700,
+        lineHeight: 1.4,
+        background: 'rgba(255, 193, 7, 0.15)',
+        border: '1.5px solid rgba(255, 193, 7, 0.4)',
+        padding: '10px 18px',
+        borderRadius: 'var(--radius-pill)',
+        display: 'inline-block',
+        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+      }}>
         A cargo pod has Volume = <strong style={{ color: 'var(--gold)' }}>120 cm³</strong>, Length = 8 cm, Width = 5 cm. What is its Height?
       </p>
 

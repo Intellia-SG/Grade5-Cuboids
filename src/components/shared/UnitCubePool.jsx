@@ -15,8 +15,8 @@ export default function UnitCubePool({ cubesRemaining, selectedCube, onSelectCub
         border: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
-      <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--color-text-muted)', fontFamily: 'var(--font-display)' }}>
-        Cargo Tray (Cubes left: {cubesRemaining})
+      <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#e2e8f0', fontFamily: 'var(--font-display)' }}>
+        Cargo Tray (Cubes left: <span style={{ color: 'var(--gold)' }}>{cubesRemaining}</span>)
       </div>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center', maxWidth: '280px' }}>

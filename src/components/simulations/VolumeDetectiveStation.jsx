@@ -27,10 +27,22 @@ export default function VolumeDetectiveStation({ onCompleteStation, onMistake })
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', color: 'var(--purple-light)', marginBottom: '4px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--purple-light)', marginBottom: '8px' }}>
         Station B: Volume Detective
       </h3>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '12px', fontSize: '0.9rem' }}>
+      <p style={{
+        color: '#ffffff',
+        marginBottom: '16px',
+        fontSize: '1.1rem',
+        fontWeight: 700,
+        lineHeight: 1.4,
+        background: 'rgba(124, 92, 191, 0.2)',
+        border: '1.5px solid rgba(124, 92, 191, 0.45)',
+        padding: '10px 18px',
+        borderRadius: 'var(--radius-pill)',
+        display: 'inline-block',
+        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+      }}>
         Inspect the 4 cargo pods below. Find the pod with a volume of exactly <strong style={{ color: 'var(--gold)' }}>{targetVolume} cm³</strong>!
       </p>
 

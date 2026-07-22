@@ -30,11 +30,23 @@ export default function CubeFillStation({ onCompleteStation }) {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', color: 'var(--gold)', marginBottom: '4px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '8px' }}>
         Station A: Build the Cargo Box
       </h3>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '14px', fontSize: '0.9rem' }}>
-        Fill the 4 m × 3 m × 2 m cargo hold with 1 m³ unit cubes!
+      <p style={{
+        color: '#ffffff',
+        marginBottom: '16px',
+        fontSize: '1.15rem',
+        fontWeight: 700,
+        lineHeight: 1.4,
+        background: 'rgba(255, 193, 7, 0.15)',
+        border: '1.5px solid rgba(255, 193, 7, 0.4)',
+        padding: '10px 18px',
+        borderRadius: 'var(--radius-pill)',
+        display: 'inline-block',
+        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+      }}>
+        Fill the <span style={{ color: 'var(--gold)', textDecoration: 'underline' }}>4 m × 3 m × 2 m</span> cargo hold with <span style={{ color: '#00e676' }}>1 m³</span> unit cubes!
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', alignItems: 'center' }}>

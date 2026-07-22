@@ -85,12 +85,7 @@ function generateOne(text, filename, force = false) {
 }
 
 async function main() {
-  const FORCE_REGEN = new Set([
-    'audio_story_panel_2.mp3',
-    'audio_story_panel_3.mp3',
-    'audio_story_panel_4.mp3',
-    'audio_correct.mp3',
-  ]);
+  const FORCE_REGEN = new Set(AUDIO_LINES.map(a => a.file));
 
   console.log('\n🚀  CargoQuest Audio Generation — ElevenLabs TTS');
   console.log(`📂  Output: ${OUT_DIR}`);
