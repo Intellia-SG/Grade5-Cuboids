@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Sparkles, HelpCircle, BookOpen, Layers, Award } from 'lucide-react';
+import { Play, Sparkles, HelpCircle, BookOpen, Layers, Target, Award } from 'lucide-react';
 import Mascot from './shared/Mascot.jsx';
 import CuboidDiagram from './shared/CuboidDiagram.jsx';
 
@@ -25,7 +25,7 @@ export default function IntroScreen({ onStart }) {
           { icon: HelpCircle, title: 'Wonder', desc: 'Space Hook' },
           { icon: BookOpen, title: 'Story', desc: 'Concept' },
           { icon: Layers, title: 'Simulate', desc: '3 Stations' },
-          { icon: Play, title: 'Play', desc: 'Quiz' },
+          { icon: Target, title: 'Practice', desc: 'Quiz' },
           { icon: Award, title: 'Reflect', desc: 'Certify' },
         ].map((step, idx) => {
           const Icon = step.icon;

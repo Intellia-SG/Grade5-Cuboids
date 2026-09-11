@@ -29,7 +29,7 @@ export default function CuboidDiagram({
   const w = width;
   const h = height;
 
-  const centerOffsetX = (l + w + h) * scale * 0.9;
+  const centerOffsetX = (l + w + h) * scale * 0.9 + 25;
   const centerOffsetY = (l + w + h) * scale * 0.8 + 40;
 
   // Key vertex coordinates in 3D
@@ -57,13 +57,14 @@ export default function CuboidDiagram({
   const volumeVal = l * w * h;
 
   return (
-    <div className={`cuboid-diagram-wrapper ${className}`} style={{ textAlign: 'center' }}>
+    <div className={`cuboid-diagram-wrapper ${className}`} style={{ textAlign: 'center', width: '100%', display: 'flex', justifyContent: 'center' }}>
       <svg
         viewBox={`0 0 ${svgWidth} ${svgHeight}`}
         style={{
-          maxWidth: '100%',
+          width: '100%',
+          maxWidth: size === 'large' ? '320px' : size === 'medium' ? '260px' : '220px',
           height: 'auto',
-          filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.4))',
+          filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.4))',
         }}
       >
         <defs>
@@ -138,7 +139,7 @@ export default function CuboidDiagram({
         )}
 
         {/* Dimension Labels */}
-        {/* Length (bottom front) */}
+        {/* Length (bottom front edge) */}
         <text
           x={(p00W.px + pL0W.px) / 2 + centerOffsetX}
           y={(p00W.py + pL0W.py) / 2 + centerOffsetY + 22}
@@ -150,12 +151,12 @@ export default function CuboidDiagram({
           {missingSlot === 'length' ? 'Length: ?' : isCube ? `Side: ${l} ${unit}` : `L: ${l} ${unit}`}
         </text>
 
-        {/* Width (bottom side) */}
+        {/* Width (bottom side edge) */}
         {!isCube && (
           <text
-            x={(pL0W.px + pL00.px) / 2 + centerOffsetX + 24}
-            y={(pL0W.py + pL00.py) / 2 + centerOffsetY + 16}
-            textAnchor="middle"
+            x={(pL0W.px + pL00.px) / 2 + centerOffsetX + 14}
+            y={(pL0W.py + pL00.py) / 2 + centerOffsetY + 18}
+            textAnchor="start"
             fill="#f8fafc"
             fontSize="15"
             fontWeight="700"
@@ -164,12 +165,12 @@ export default function CuboidDiagram({
           </text>
         )}
 
-        {/* Height (front right edge) */}
+        {/* Height (far-left vertical edge) */}
         {!isCube && (
           <text
-            x={pLHW.px + centerOffsetX + 28}
-            y={(pL0W.py + pLHW.py) / 2 + centerOffsetY}
-            textAnchor="start"
+            x={(p00W.px + p0HW.px) / 2 + centerOffsetX - 12}
+            y={(p00W.py + p0HW.py) / 2 + centerOffsetY}
+            textAnchor="end"
             fill="#f8fafc"
             fontSize="15"
             fontWeight="700"

@@ -54,7 +54,7 @@ export default function SimulatePhase({ state, dispatch, onComplete }) {
               You have mastered concrete, pictorial, and abstract volume skills.
             </p>
             <button className="btn btn-primary" onClick={onComplete}>
-              Proceed to Play Phase <ArrowRight size={18} />
+              Proceed to Practice Phase <ArrowRight size={18} />
             </button>
           </div>
         )}

@@ -25,29 +25,31 @@ export default function FormulaMasterStation({ onCompleteStation, isCompleted })
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '8px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '6px' }}>
         Station C: Formula Master
       </h3>
       <p style={{
         color: '#ffffff',
         marginBottom: '16px',
-        fontSize: '1.1rem',
-        fontWeight: 700,
+        fontSize: '1rem',
+        fontWeight: 600,
         lineHeight: 1.4,
-        background: 'rgba(255, 193, 7, 0.15)',
-        border: '1.5px solid rgba(255, 193, 7, 0.4)',
+        background: 'rgba(255, 193, 7, 0.12)',
+        border: '1px solid rgba(255, 193, 7, 0.35)',
         padding: '10px 18px',
-        borderRadius: 'var(--radius-pill)',
-        display: 'inline-block',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+        borderRadius: 'var(--radius-md)',
+        maxWidth: '540px',
+        margin: '0 auto 16px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+        boxSizing: 'border-box',
       }}>
         A cargo pod has Volume = <strong style={{ color: 'var(--gold)' }}>120 cm³</strong>, Length = 8 cm, Width = 5 cm. What is its Height?
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', alignItems: 'center' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', alignItems: 'center' }}>
         <div>
-          <CuboidDiagram length={length} width={width} height={targetHeight} missingSlot="height" size="medium" />
-          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '10px 14px', borderRadius: 'var(--radius-md)', marginTop: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <CuboidDiagram length={length} width={width} height={targetHeight} missingSlot="height" size="medium" showFormula={false} />
+          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '8px 12px', borderRadius: 'var(--radius-md)', marginTop: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
             <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--gold)', fontFamily: 'var(--font-display)' }}>
               8 × 5 × <span style={{ color: '#00e676' }}>?</span> = 120 cm³
             </div>
@@ -55,7 +57,7 @@ export default function FormulaMasterStation({ onCompleteStation, isCompleted })
         </div>
 
         <div>
-          <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px', fontFamily: 'var(--font-display)' }}>
+          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', marginBottom: '6px', fontFamily: 'var(--font-display)' }}>
             Height: <span style={{ color: 'var(--gold)' }}>{inputVal || '?'}</span> cm
           </div>
 

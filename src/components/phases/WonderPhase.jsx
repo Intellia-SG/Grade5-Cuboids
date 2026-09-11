@@ -22,43 +22,40 @@ export default function WonderPhase({ audioEnabled, onComplete }) {
 
   return (
     <div className="wonder-screen">
-      <div className="wonder-orb">
-        <HelpCircle size={40} color="#ffffff" />
-      </div>
+      <div className="glass-card wonder-card-v2">
+        {/* Top Header */}
+        <div style={{ textAlign: 'center' }}>
+          <div className="topic-badge" style={{ marginBottom: '4px' }}>
+            <HelpCircle size={15} /> Phase 1: Wonder
+          </div>
 
-      <div className="glass-card wonder-card">
-        <div className="topic-badge" style={{ marginBottom: '8px' }}>
-          <HelpCircle size={16} /> Phase 1: Wonder
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: '#ffffff', marginBottom: '4px' }}>
+            Which Cargo Hold Has More Space?
+          </h2>
+
+          <p style={{ fontSize: '0.96rem', color: 'var(--color-text-muted)', maxWidth: '640px', margin: '0 auto', lineHeight: 1.35 }}>
+            Mike has two cargo boxes for space delivery. Box A is flat and wide (6 × 4 × 2). Box B is tall and narrow (3 × 4 × 4).
+          </p>
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: '#ffffff', marginBottom: '10px' }}>
-          Which Cargo Hold Has More Space?
-        </h2>
-
-        <p style={{ fontSize: '1.02rem', color: 'var(--color-text-muted)', maxWidth: '500px', margin: '0 auto 20px' }}>
-          Mike has two cargo boxes for space delivery. Box A is flat and wide (6 × 4 × 2). Box B is tall and narrow (3 × 4 × 4).
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+        {/* 2-Column Side-by-Side Boxes */}
+        <div className="wonder-grid">
           {/* Box A */}
           <div
             onClick={() => handleSelect('A')}
-            style={{
-              background: selectedBox === 'A' ? '#ffc10729' : '#ffffff0a',
-              border: `2px solid ${selectedBox === 'A' ? 'var(--gold)' : 'rgba(255, 255, 255, 0.1)'}`,
-              borderRadius: 'var(--radius-md)',
-              padding: '16px',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
+            className={`wonder-box-card ${selectedBox === 'A' ? 'active-a' : ''}`}
           >
-            <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--gold)', marginBottom: '8px', fontSize: '1.1rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--gold)', marginBottom: '4px', fontSize: '1.05rem', textAlign: 'center' }}>
               Box A (Flat & Wide)
             </h3>
-            <CuboidDiagram length={6} width={4} height={2} size="small" showCubeGrid={revealed} />
-            {revealed && (
-              <div style={{ marginTop: '10px', fontWeight: 800, color: 'var(--gold)', fontSize: '1rem' }}>
+            <CuboidDiagram length={6} width={4} height={2} size="medium" showCubeGrid={revealed} showFormula={false} />
+            {revealed ? (
+              <div style={{ marginTop: '6px', fontWeight: 800, color: 'var(--gold)', fontSize: '0.95rem', textAlign: 'center' }}>
                 6 × 4 × 2 = 48 unit cubes
+              </div>
+            ) : (
+              <div style={{ marginTop: '6px', fontWeight: 700, color: 'var(--color-text-muted)', fontSize: '0.85rem', textAlign: 'center' }}>
+                Tap to count cubes 👆
               </div>
             )}
           </div>
@@ -66,42 +63,40 @@ export default function WonderPhase({ audioEnabled, onComplete }) {
           {/* Box B */}
           <div
             onClick={() => handleSelect('B')}
-            style={{
-              background: selectedBox === 'B' ? '#7c5cbf29' : '#ffffff0a',
-              border: `2px solid ${selectedBox === 'B' ? 'var(--purple-light)' : 'rgba(255, 255, 255, 0.1)'}`,
-              borderRadius: 'var(--radius-md)',
-              padding: '16px',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
+            className={`wonder-box-card ${selectedBox === 'B' ? 'active-b' : ''}`}
           >
-            <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--purple-light)', marginBottom: '8px', fontSize: '1.1rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--purple-light)', marginBottom: '4px', fontSize: '1.05rem', textAlign: 'center' }}>
               Box B (Tall & Narrow)
             </h3>
-            <CuboidDiagram length={3} width={4} height={4} size="small" showCubeGrid={revealed} />
-            {revealed && (
-              <div style={{ marginTop: '10px', fontWeight: 800, color: 'var(--purple-light)', fontSize: '1rem' }}>
+            <CuboidDiagram length={3} width={4} height={4} size="medium" showCubeGrid={revealed} showFormula={false} />
+            {revealed ? (
+              <div style={{ marginTop: '6px', fontWeight: 800, color: 'var(--purple-light)', fontSize: '0.95rem', textAlign: 'center' }}>
                 3 × 4 × 4 = 48 unit cubes
+              </div>
+            ) : (
+              <div style={{ marginTop: '6px', fontWeight: 700, color: 'var(--color-text-muted)', fontSize: '0.85rem', textAlign: 'center' }}>
+                Tap to count cubes 👆
               </div>
             )}
           </div>
         </div>
 
-        {revealed ? (
-          <div className="wonder-discover" style={{ flexDirection: 'column' }}>
-            <Mascot
-              mood="happy"
-              message="Surprise! Both hold exactly 48 unit cubes! Volume is the total 3D space inside, regardless of shape."
-            />
-            <div style={{ marginTop: '14px' }}>
-              <button className="btn btn-primary btn-lg" onClick={onComplete}>
-                Continue to Story <ArrowRight size={20} />
+        {/* Bottom Horizontal Bar */}
+        <div className="wonder-bottom-bar">
+          {revealed ? (
+            <>
+              <Mascot
+                mood="happy"
+                message="Surprise! Both hold 48 unit cubes! Volume is the total 3D space inside."
+              />
+              <button className="btn btn-primary btn-sm" onClick={onComplete} style={{ flexShrink: 0, padding: '10px 22px', fontSize: '1rem' }}>
+                Continue to Story <ArrowRight size={18} />
               </button>
-            </div>
-          </div>
-        ) : (
-          <Mascot mood="thinking" message="Tap a box to reveal its cube count and compare their volumes!" />
-        )}
+            </>
+          ) : (
+            <Mascot mood="thinking" message="Tap a box above to reveal its cube count and compare their volumes!" />
+          )}
+        </div>
       </div>
     </div>
   );

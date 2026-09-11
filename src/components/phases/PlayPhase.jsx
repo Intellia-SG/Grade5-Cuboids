@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Globe } from 'lucide-react';
+import { Target, Globe } from 'lucide-react';
 import QuestionRenderer from '../quiz/QuestionRenderer.jsx';
 import WorldMap from '../gamification/WorldMap.jsx';
 
@@ -12,7 +12,7 @@ export default function PlayPhase({ state, dispatch, onComplete }) {
     <div className="play-screen">
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '640px', marginBottom: '4px' }}>
         <div className="topic-badge">
-          <Play size={14} /> Phase 5: Quiz (World {state.currentWorld + 1})
+          <Target size={14} /> Phase 5: Practice (World {state.currentWorld + 1})
         </div>
 
         <button

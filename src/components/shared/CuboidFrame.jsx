@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function CuboidFrame({ length, width, height, filledCount }) {
-  const scale = 22;
+  const scale = 20;
   const isoAngle = Math.PI / 6;
 
   const project = (x, y, z) => {

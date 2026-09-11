@@ -27,21 +27,23 @@ export default function VolumeDetectiveStation({ onCompleteStation, onMistake })
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--purple-light)', marginBottom: '8px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--purple-light)', marginBottom: '6px' }}>
         Station B: Volume Detective
       </h3>
       <p style={{
         color: '#ffffff',
         marginBottom: '16px',
-        fontSize: '1.1rem',
-        fontWeight: 700,
+        fontSize: '1rem',
+        fontWeight: 600,
         lineHeight: 1.4,
-        background: 'rgba(124, 92, 191, 0.2)',
-        border: '1.5px solid rgba(124, 92, 191, 0.45)',
+        background: 'rgba(124, 92, 191, 0.18)',
+        border: '1px solid rgba(124, 92, 191, 0.4)',
         padding: '10px 18px',
-        borderRadius: 'var(--radius-pill)',
-        display: 'inline-block',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+        borderRadius: 'var(--radius-md)',
+        maxWidth: '540px',
+        margin: '0 auto 16px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+        boxSizing: 'border-box',
       }}>
         Inspect the 4 cargo pods below. Find the pod with a volume of exactly <strong style={{ color: 'var(--gold)' }}>{targetVolume} cm³</strong>!
       </p>
@@ -74,16 +76,16 @@ export default function VolumeDetectiveStation({ onCompleteStation, onMistake })
                 transition: 'all 0.2s ease',
               }}
             >
-              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--gold)', marginBottom: '4px', fontSize: '0.9rem' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--gold)', marginBottom: '4px', fontSize: '0.92rem' }}>
                 Pod {card.id}
               </div>
               <CuboidDiagram length={card.length} width={card.width} height={card.height} size="small" showFormula={false} />
               {isSelected ? (
-                <div style={{ marginTop: '6px', fontWeight: 800, fontSize: '0.82rem', color: isTarget ? '#00e676' : '#ef5350' }}>
+                <div style={{ marginTop: '6px', fontWeight: 800, fontSize: '0.8rem', color: isTarget ? '#00e676' : '#ef5350', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {card.length} × {card.width} × {card.height} = {card.volume} cm³
                 </div>
               ) : (
-                <div style={{ marginTop: '6px', fontWeight: 700, fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>
+                <div style={{ marginTop: '6px', fontWeight: 700, fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
                   V = ? cm³
                 </div>
               )}

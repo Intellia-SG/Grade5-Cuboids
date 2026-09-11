@@ -69,6 +69,9 @@ function appReducer(state, action) {
     case 'PREV_STORY_PANEL':
       return { ...state, storyPanel: Math.max(state.storyPanel - 1, 0) };
 
+    case 'SET_STORY_PANEL':
+      return { ...state, storyPanel: Math.max(0, Math.min(action.payload, 5)) };
+
     case 'SET_SIM_STATION':
       return { ...state, currentSimStation: action.payload, simRound: 0 };
 
@@ -197,15 +200,9 @@ export default function App() {
         currentPhase={state.phase}
         phaseComplete={state.phaseComplete}
         onSelectPhase={(phase) => dispatch({ type: 'SET_PHASE', payload: phase })}
+        audioEnabled={state.audioEnabled}
+        onToggleAudio={() => dispatch({ type: 'TOGGLE_AUDIO' })}
       />
-
-      <button
-        className="audio-toggle-btn"
-        onClick={() => dispatch({ type: 'TOGGLE_AUDIO' })}
-        title={state.audioEnabled ? 'Mute Audio' : 'Unmute Audio'}
-      >
-        {state.audioEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
-      </button>
 
       {/* Main Viewport */}
       <main className={`phase-viewport phase-frame--${state.phase}`}>
@@ -229,6 +226,7 @@ export default function App() {
             audioEnabled={state.audioEnabled}
             onNext={() => dispatch({ type: 'NEXT_STORY_PANEL' })}
             onPrev={() => dispatch({ type: 'PREV_STORY_PANEL' })}
+            onSelectPanel={(index) => dispatch({ type: 'SET_STORY_PANEL', payload: index })}
             onComplete={() => {
               dispatch({ type: 'COMPLETE_PHASE', payload: 'story' });
               dispatch({ type: 'SET_PHASE', payload: 'simulate' });
@@ -275,7 +273,7 @@ export default function App() {
       )}
 
       {/* Bottom HUD Bar */}
-      <footer className="hud" style={{ position: 'fixed', bottom: '14px', left: '50%', transform: 'translateX(-50%)', zIndex: 60 }}>
+      <footer className="hud" style={{ position: 'fixed', bottom: '8px', left: '50%', transform: 'translateX(-50%)', zIndex: 60 }}>
         <XPTracker xp={state.xp} />
         <StreakCounter streak={state.streak} />
         <div className="hud-item" style={{ color: '#ffc107' }}>

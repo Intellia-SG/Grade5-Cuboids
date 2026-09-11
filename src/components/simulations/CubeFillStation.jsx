@@ -30,29 +30,31 @@ export default function CubeFillStation({ onCompleteStation }) {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '8px' }}>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', color: 'var(--gold)', marginBottom: '6px' }}>
         Station A: Build the Cargo Box
       </h3>
       <p style={{
         color: '#ffffff',
         marginBottom: '16px',
-        fontSize: '1.15rem',
-        fontWeight: 700,
+        fontSize: '1rem',
+        fontWeight: 600,
         lineHeight: 1.4,
-        background: 'rgba(255, 193, 7, 0.15)',
-        border: '1.5px solid rgba(255, 193, 7, 0.4)',
+        background: 'rgba(255, 193, 7, 0.12)',
+        border: '1px solid rgba(255, 193, 7, 0.35)',
         padding: '10px 18px',
-        borderRadius: 'var(--radius-pill)',
-        display: 'inline-block',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+        borderRadius: 'var(--radius-md)',
+        maxWidth: '540px',
+        margin: '0 auto 16px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+        boxSizing: 'border-box',
       }}>
-        Fill the <span style={{ color: 'var(--gold)', textDecoration: 'underline' }}>4 m × 3 m × 2 m</span> cargo hold with <span style={{ color: '#00e676' }}>1 m³</span> unit cubes!
+        Fill the <span style={{ color: 'var(--gold)', fontWeight: 800 }}>4 m × 3 m × 2 m</span> cargo hold with <span style={{ color: '#00e676', fontWeight: 800 }}>1 m³</span> unit cubes!
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', alignItems: 'center' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', alignItems: 'center' }}>
         <div>
           <CuboidFrame length={length} width={width} height={height} filledCount={filledCount} />
-          <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', marginTop: '8px', fontFamily: 'var(--font-display)' }}>
+          <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', marginTop: '6px', fontFamily: 'var(--font-display)' }}>
             Filled: <span style={{ color: 'var(--gold)' }}>{filledCount}</span> / {targetTotal} m³
           </div>
         </div>

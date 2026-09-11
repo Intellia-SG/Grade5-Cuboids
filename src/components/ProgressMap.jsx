@@ -1,16 +1,16 @@
 import React from 'react';
-import { Sparkles, HelpCircle, BookOpen, Layers, Play, Award } from 'lucide-react';
+import { Sparkles, HelpCircle, BookOpen, Layers, Target, Award, Volume2, VolumeX } from 'lucide-react';
 
 const PHASES = [
   { id: 'intro', label: 'INTRO', icon: Sparkles },
   { id: 'wonder', label: 'WONDER', icon: HelpCircle },
   { id: 'story', label: 'STORY', icon: BookOpen },
   { id: 'simulate', label: 'SIMULATE', icon: Layers },
-  { id: 'play', label: 'PLAY', icon: Play },
+  { id: 'play', label: 'PRACTICE', icon: Target },
   { id: 'reflect', label: 'REFLECT', icon: Award },
 ];
 
-export default function ProgressMap({ currentPhase, phaseComplete, onSelectPhase }) {
+export default function ProgressMap({ currentPhase, phaseComplete, onSelectPhase, audioEnabled, onToggleAudio }) {
   const currentIdx = PHASES.findIndex((p) => p.id === currentPhase);
 
   return (
@@ -38,6 +38,19 @@ export default function ProgressMap({ currentPhase, phaseComplete, onSelectPhase
           </React.Fragment>
         );
       })}
+
+      {onToggleAudio && (
+        <>
+          <div className="journey-connector" />
+          <button
+            className="journey-audio-btn"
+            onClick={onToggleAudio}
+            title={audioEnabled ? 'Mute Audio' : 'Unmute Audio'}
+          >
+            {audioEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+          </button>
+        </>
+      )}
     </div>
   );
 }

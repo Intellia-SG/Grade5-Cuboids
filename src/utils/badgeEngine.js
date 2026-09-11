@@ -14,7 +14,7 @@ export const BADGES = [
   {
     id: 'volume_voyager',
     label: '🚀 Volume Voyager',
-    description: 'Score 80%+ in Play phase',
+    description: 'Score 80%+ in Practice phase',
     condition: (s) => {
       const totalCorrect = s.worldScores.reduce((sum, ws) => sum + (ws || 0), 0);
       return totalCorrect >= 80;
